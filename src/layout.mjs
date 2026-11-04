@@ -50,7 +50,7 @@ export function layout({ path, title, description, body, schema = [], bodyClass 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
-${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
+${noindex || !site.searchVisible ? `<meta name="robots" content="noindex, ${site.searchVisible ? 'follow' : 'nofollow'}">` : '<meta name="robots" content="index, follow, max-image-preview:large">'}
 <meta name="theme-color" content="#101113">
 <meta name="format-detection" content="telephone=yes">
 <meta property="og:type" content="website">

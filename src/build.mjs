@@ -46,13 +46,18 @@ await writeFile(
   Cache-Control: public, max-age=604800
 
 /*
-  X-Content-Type-Options: nosniff
+${site.searchVisible ? '' : '  X-Robots-Tag: noindex, nofollow\n'}  X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 `
 );
 
-await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
+// While hidden, crawling stays allowed so search engines can read the noindex tags
+// (blocking crawling in robots.txt would stop them seeing noindex). No sitemap is advertised.
+await writeFile(
+  join(out, 'robots.txt'),
+  site.searchVisible ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n` : `User-agent: *\nAllow: /\n`
+);
 
-console.log(`Built ${pages.length} pages -> public/`);
+console.log(`Built ${pages.length} pages -> public/ (search engines: ${site.searchVisible ? 'ALLOWED' : 'HIDDEN — noindex'})`);

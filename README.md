@@ -36,6 +36,12 @@ Every push to the connected branch redeploys automatically.
 **Using a different domain?** Change it in three places: `url` in `src/config.mjs`, `CANONICAL_HOST`
 in `worker/index.js`, and `routes` in `wrangler.jsonc`.
 
+## Hidden from search engines until launch
+
+`searchVisible` in `src/config.mjs` is currently **false**. The site is live, but every page carries
+`noindex` (a meta tag plus an `X-Robots-Tag` header), and robots.txt doesn't list the sitemap. To go
+public, set it to `true` and push. Then submit `https://lopezdemo.com/sitemap.xml` in Google Search Console.
+
 ## Structure
 
 ```
