@@ -36,6 +36,17 @@ Every push to the connected branch redeploys automatically.
 **Using a different domain?** Change it in three places: `url` in `src/config.mjs`, `CANONICAL_HOST`
 in `worker/index.js`, and `routes` in `wrangler.jsonc`.
 
+## Maintenance mode (currently ON)
+
+While `MAINTENANCE_MODE` is `"true"` in `wrangler.jsonc`, every visitor sees only a branded
+"New Website Coming Soon" page. It has the call button, returns HTTP 503 and is marked noindex.
+
+- **Preview the real site:** in Cloudflare, open the Worker and go to **Settings → Variables and
+  Secrets → Add**. Choose type **Secret**, name it `PREVIEW_KEY`, and give it a long random value. Then
+  visit `https://lopezdemo.com/?preview=<that value>` once. A cookie keeps you in for 30 days.
+  `?preview=off` signs you out.
+- **Launch:** set `"MAINTENANCE_MODE": "false"` and push.
+
 ## Hidden from search engines until launch
 
 `searchVisible` in `src/config.mjs` is currently **false**. The site is live, but every page carries

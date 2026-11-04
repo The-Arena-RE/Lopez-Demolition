@@ -18,5 +18,10 @@
     { "pattern": "lopezdemo.com", "custom_domain": true },
     { "pattern": "www.lopezdemo.com", "custom_domain": true }
   ],
+  // MAINTENANCE MODE: "true" = visitors only see the "coming soon" page.
+  // Set to "false" and push to launch the full site.
+  // Preview the real site while in maintenance: set a secret named PREVIEW_KEY
+  // (Worker > Settings > Variables and Secrets), then visit https://lopezdemo.com/?preview=<that key>
+  "vars": { "MAINTENANCE_MODE": "true" },
   "observability": { "enabled": true }
 }
