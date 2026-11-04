@@ -22,6 +22,6 @@
   // Set to "false" and push to launch the full site.
   // Preview the real site while in maintenance: set a secret named PREVIEW_KEY
   // (Worker > Settings > Variables and Secrets), then visit https://lopezdemo.com/?preview=<that key>
-  "vars": { "MAINTENANCE_MODE": "true" },
+  "vars": { "MAINTENANCE_MODE": "false" },
   "observability": { "enabled": true }
 }

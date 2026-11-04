@@ -11,7 +11,7 @@ export const site = {
   // SEARCH ENGINE SWITCH
   // false = site is live but hidden from Google/Bing (noindex on every page).
   // true  = site is public and indexable. Flip to true at launch, then push.
-  searchVisible: false,
+  searchVisible: true,
 
   phoneDisplay: '(210) 739-8016',
   phoneHref: 'tel:+12107398016',

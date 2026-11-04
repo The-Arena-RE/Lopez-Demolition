@@ -36,7 +36,7 @@ Every push to the connected branch redeploys automatically.
 **Using a different domain?** Change it in three places: `url` in `src/config.mjs`, `CANONICAL_HOST`
 in `worker/index.js`, and `routes` in `wrangler.jsonc`.
 
-## Maintenance mode (currently ON)
+## Maintenance mode (currently OFF — site is live)
 
 While `MAINTENANCE_MODE` is `"true"` in `wrangler.jsonc`, every visitor sees only a branded
 "New Website Coming Soon" page. It has the call button, returns HTTP 503 and is marked noindex.
@@ -49,9 +49,9 @@ While `MAINTENANCE_MODE` is `"true"` in `wrangler.jsonc`, every visitor sees onl
 
 ## Hidden from search engines until launch
 
-`searchVisible` in `src/config.mjs` is currently **false**. The site is live, but every page carries
+`searchVisible` in `src/config.mjs` is currently **true** (indexable). When false, every page carries
 `noindex` (a meta tag plus an `X-Robots-Tag` header), and robots.txt doesn't list the sitemap. To go
-public, set it to `true` and push. Then submit `https://lopezdemo.com/sitemap.xml` in Google Search Console.
+public, set it to `true` and push, then submit `https://lopezdemo.com/sitemap.xml` in Google Search Console.
 
 ## Structure
 
