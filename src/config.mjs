@@ -7,7 +7,7 @@ export const site = {
   name: 'Lopez Demolition Company',
   // Confirm the registered domain + extension before launch. Used for canonical
   // URLs, the sitemap, and structured data.
-  url: 'https://www.lopezdemo.com',
+  url: 'https://lopezdemo.com',
   phoneDisplay: '(210) 739-8016',
   phoneHref: 'tel:+12107398016',
   phoneE164: '+1-210-739-8016',

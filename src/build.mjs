@@ -39,6 +39,20 @@ ${indexable
 </urlset>
 `
 );
+// Cloudflare static-asset headers
+await writeFile(
+  join(out, '_headers'),
+  `/assets/*
+  Cache-Control: public, max-age=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+`
+);
+
 await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 
 console.log(`Built ${pages.length} pages -> public/`);

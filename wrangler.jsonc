@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lopez-demolition",
+  "main": "./worker/index.js",
+  "compatibility_date": "2026-11-03",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    // Run the Worker on every request so www.lopezdemo.com can redirect to lopezdemo.com.
+    "run_worker_first": true
+  },
+  // Attaches the site to the domain already in this Cloudflare account.
+  // Cloudflare creates the DNS records on deploy. Remove any existing A/AAAA/CNAME
+  // records for these hostnames first, or the deploy will report a conflict.
+  "routes": [
+    { "pattern": "lopezdemo.com", "custom_domain": true },
+    { "pattern": "www.lopezdemo.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

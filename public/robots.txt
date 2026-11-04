@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lopezdemo.com/sitemap.xml
+Sitemap: https://lopezdemo.com/sitemap.xml

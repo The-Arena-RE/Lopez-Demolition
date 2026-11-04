@@ -10,16 +10,37 @@ from shared templates, so the header, footer, phone number, and SEO tags stay co
 ## Quick start
 
 ```bash
+npm install        # installs wrangler (Cloudflare CLI)
 npm run build      # generates ./public
-npm run serve      # previews at http://localhost:4173
+npm run dev        # local preview through Cloudflare's runtime
 ```
 
-Deploy the `public/` folder to any static host (Netlify config included; Cloudflare Pages, Vercel, or
-GitHub Pages also work). Requires Node 18+.
+## Deploying on Cloudflare (Workers + static assets)
+
+Deploy in the **same Cloudflare account that holds the domain**. A Worker can only attach a custom
+domain that belongs to its own account.
+
+1. In the Cloudflare dashboard, switch to the account that owns the domain (account picker, top-left).
+2. Go to **Workers & Pages → Create → Import a repository**. Connect GitHub if asked, then pick
+   this repository and branch.
+3. Use these build settings:
+   - **Build command:** `npm run build`
+   - **Deploy command:** `npx wrangler deploy`
+4. Deploy. `wrangler.jsonc` attaches `lopezdemo.com` and `www.lopezdemo.com`, and the Worker
+   301-redirects `www` to the bare domain.
+   - If the deploy says a DNS record already exists, delete the old A/AAAA/CNAME records for `@` and
+     `www` on that domain's **DNS** page, then deploy again.
+
+Every push to the connected branch redeploys automatically.
+
+**Using a different domain?** Change it in three places: `url` in `src/config.mjs`, `CANONICAL_HOST`
+in `worker/index.js`, and `routes` in `wrangler.jsonc`.
 
 ## Structure
 
 ```
+wrangler.jsonc         ← Cloudflare Worker config (static assets + custom domain)
+worker/index.js        ← www → apex redirect, then serves ./public
 src/config.mjs         ← business info, service area, hours, media, real project photos
 src/layout.mjs         ← <head>, SEO tags, LocalBusiness schema, header, footer, sticky mobile call bar
 src/partials.mjs       ← page hero, gallery / before-after, call band
@@ -37,7 +58,7 @@ All of these live in `src/config.mjs`. Anything left empty stays off the site.
 
 | Item | Why |
 |---|---|
-| `url` — the registered domain (currently `https://www.lopezdemo.com`) | Canonical URLs, sitemap, schema |
+| `url` — the registered domain (currently `https://lopezdemo.com`) | Canonical URLs, sitemap, schema |
 | `primaryCity`, `citiesServed`, `countiesServed`, `travelArea` | Service-area section, footer, schema. Do **not** assume San Antonio from the 210 area code. |
 | `hours` | Footer + contact page |
 | `googleBusinessProfile` | Linked in structured data |
