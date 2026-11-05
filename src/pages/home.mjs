@@ -22,7 +22,7 @@ const services = [
   {
     title: 'Mobile Home Removal',
     href: '/mobile-home-removal/',
-    m: 'abandonedBuilding',
+    m: 'mobileHomes',
     text: "Have an unwanted, damaged, or deteriorating mobile home taking up valuable space? We handle mobile home removal projects and related site cleanup. Call to discuss the home's condition, accessibility, and removal requirements.",
   },
   {
@@ -197,7 +197,7 @@ export const homePage = () => ({
   <div class="container">
     <div class="spotlight__wrap">
       <figure class="spotlight__media media reveal">
-        ${img('abandonedBuilding', { sizes: '(min-width: 960px) 60vw, 100vw' })}
+        ${img('mobileHomes', { sizes: '(min-width: 960px) 60vw, 100vw' })}
       </figure>
       <div class="spotlight__panel reveal">
         ${eyebrow('Mobile Home Removal', 'eyebrow--gold')}

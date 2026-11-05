@@ -51,6 +51,7 @@ const pexels = (id) => ({ pexels: id });
 export const media = {
   heroPoster: { ...pexels(12835184), alt: 'Skid steer loader parked on a job site under a clear sky' },
   heavyEquipment: { ...pexels(12181590), alt: 'Orange heavy equipment ready for site work' },
+  mobileHomes: { ...pexels(13197459), alt: 'Aerial view of a row of single-wide mobile homes' },
   abandonedBuilding: { ...pexels(11461002), alt: 'Excavator working beside an abandoned, deteriorating structure' },
   teardown: { ...pexels(11555191), alt: 'Heavy machinery tearing down old structures' },
   trashMattress: { ...pexels(29348622), alt: 'Large outdoor pile of trash with a discarded mattress and bulky debris' },

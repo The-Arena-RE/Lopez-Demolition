@@ -74,7 +74,7 @@ const services = [
       eyebrowText: 'Mobile Home Removal',
       title: 'Get That Old Mobile Home <span>Off Your Property.</span>',
       lead: 'Unwanted, damaged, or deteriorating mobile homes take up land you could be using. We handle mobile home removal projects and the cleanup that comes with them.',
-      m: 'abandonedBuilding',
+      m: 'mobileHomes',
       cta: 'CALL ABOUT MOBILE HOME REMOVAL',
     },
     intro: {
@@ -84,7 +84,7 @@ const services = [
         'Lopez Demolition Company takes on mobile home removal jobs along with the debris and site cleanup involved. The goal is the same every time: get the unwanted home gone and leave you with usable ground.',
         'Every mobile home is different. Before we can lay out next steps, we need to understand its condition, where it sits on the property, how equipment can reach it, and what else needs to go with it.',
       ],
-      m: 'teardown',
+      m: 'truckLoading',
     },
     whoFor: [
       ['Landowners', 'Land with an old home on it that\'s holding up a sale, a rebuild, or a new mobile home.'],
