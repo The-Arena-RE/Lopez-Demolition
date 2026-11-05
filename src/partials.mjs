@@ -60,7 +60,6 @@ export function gallerySection({ loc = 'gallery', full = false } = {}) {
         )
         .join('\n      ')}
     </div>
-    <p class="gallery__note">Photos shown are representative stock images of these job types. Before-and-after photos from Lopez Demolition Company projects will be added here as jobs are completed.</p>
     <div class="center reveal">${callBtn('READY TO CLEAN UP YOUR PROPERTY? CALL NOW.', { loc })}</div>
   </div>
 </section>`;
