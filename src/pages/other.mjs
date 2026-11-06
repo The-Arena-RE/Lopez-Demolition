@@ -188,7 +188,7 @@ const privacy = () => ({
   <div class="container container--narrow">
     ${eyebrow('Legal')}
     <h1 class="h2">Privacy Policy</h1>
-    <p class="muted">Last updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    <p class="muted">Last updated: November 4, 2026</p>
     <h2>Overview</h2>
     <p>This website is provided by ${site.name} to describe our services and make it easy to contact us by phone. We do not use contact forms, email sign-ups, chat tools, or user accounts on this website.</p>
     <h2>Information we collect</h2>
