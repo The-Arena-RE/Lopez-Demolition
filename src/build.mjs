@@ -24,7 +24,9 @@ for (const p of pages) {
 }
 
 // Sitemap + robots
-const today = new Date().toISOString().slice(0, 10);
+// Date the site content last changed. Update it when page content changes, so rebuilds alone
+// don't bump every <lastmod> in the sitemap.
+const lastUpdated = '2026-11-06';
 const indexable = pages.filter((p) => !p.noindex);
 await writeFile(
   join(out, 'sitemap.xml'),
@@ -33,7 +35,7 @@ await writeFile(
 ${indexable
   .map(
     (p) =>
-      `  <url><loc>${site.url}${p.path}</loc><lastmod>${today}</lastmod><priority>${p.path === '/' ? '1.0' : p.path === '/privacy/' ? '0.2' : '0.8'}</priority></url>`
+      `  <url><loc>${site.url}${p.path}</loc><lastmod>${lastUpdated}</lastmod><priority>${p.path === '/' ? '1.0' : p.path === '/privacy/' ? '0.2' : '0.8'}</priority></url>`
   )
   .join('\n')}
 </urlset>
